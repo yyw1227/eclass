@@ -1,0 +1,74 @@
+<view class="page">
+  <view class='head'>基本信息</view>
+  <view class='section'>
+    <view class='right'>
+      <text>头像</text>
+    </view>
+    <view class='left' bindtap='uploadImg'>
+      <image src="{{user.img? user.img:'/images/default.png'}}" class='img140 border'></image>
+      <text class='iconfont icon-jiantou1'></text>
+    </view>
+  </view>
+  <form bindsubmit="formSubmit">
+    <view class='section'>
+      <view class='right'>
+        <text>姓名</text>
+      </view>
+      <view class='left'>
+        <input name="name" type="text" placeholder="输入姓名" class='input-item' />
+      </view>
+    </view>
+    <block wx:if="{{type==0}}">
+      <!-- 校内（填写班级学籍号） -->
+      <view class='section'>
+        <view class='right'>
+          <text>班级</text>
+        </view>
+        <view class='left'>
+          <picker name="team_id" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindColumnChange" value="{{multiIndex}}" range="{{multiArray}}" range-key="{{'title'}}">
+            <view class='pick-content'>
+              <text>{{multiArray[0][multiIndex[0]].title}}，{{multiArray[1][multiIndex[1]].title}}</text>
+              <text class='iconfont icon-jiantou1'></text>
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class='section'>
+        <view class='right'>
+          <text>学籍号</text>
+        </view>
+        <view class='left'>
+          <input name="number" type="number" placeholder="输入学籍号" class='input-item' />
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <!-- 校外 (填写年级) -->
+      <view class='section'>
+        <view class='right'>
+          <text>年级</text>
+        </view>
+        <view class='left'>
+          <picker name="grade_id" bindchange="bindGradeChange" value="{{index}}" range="{{grade}}" range-key="{{'name'}}">
+            <view class='pick-content'>
+              <text>{{grade[index].name}}</text>
+              <text class='iconfont icon-jiantou1'></text>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </block>
+    <view class='bind-wechat'>
+      <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='wechat-btn'>
+        <block wx:if="{{wechatChecked}}">
+          <image src='/images/checked.png' class="img30 check-img"></image>
+        </block>
+        <block wx:else>
+          <image src='/images/rechecked.png' class="img30 check-img"></image>
+        </block>
+        <image src='/images/wechat.png' class="img50"></image>
+        绑定微信一键登陆（绑定后无法取消）</button>
+    </view>
+    <button class='login-btn' formType="submit">完成注册</button>
+  </form>
+</view>

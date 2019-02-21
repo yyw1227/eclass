@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#EA5550",
+  "navigationBarTitleText": "已发布作品",
+  "usingComponents": {
+    "slide-view": "miniprogram-slide-view"
+  }
+}

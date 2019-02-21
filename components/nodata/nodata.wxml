@@ -1,0 +1,4 @@
+<view class="section" style="padding-top:{{padding}}rpx;background-color: {{bgColor}};">
+    <image class="nodata" src="/images/nodata.png" mode="aspectFill" />
+    <view class="font">没有更多的{{title}}了...</view>
+</view>

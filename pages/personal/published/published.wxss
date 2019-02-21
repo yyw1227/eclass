@@ -1,0 +1,86 @@
+.slide{
+  border-bottom:1px solid #eee;
+}
+.l {
+  background-color: white;
+  height: 200rpx;
+  width: 750rpx;
+}
+.r {
+  height: 200rpx;
+  display: flex;
+  text-align: center;
+  line-height: 200rpx;
+  font-size: 34rpx;
+}
+.edit {
+  background-color: #ccc;
+  color: #fff;
+  width: 150rpx;
+}
+.delete {
+  background-color: red;
+  color: #fff;
+  width: 150rpx; 
+}
+page {
+  height: 100%;
+}
+
+.page {
+  background-color: #f0f0f0;
+  height: 100%;
+}
+
+.tab_content_item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 20rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  height: 200rpx;
+}
+
+.tab_content_item .item-poster {
+  width: 250rpx;
+  height: 160rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+
+.tab_content_item .item-poster image {
+  width: 100%;
+  height: 100%;
+}
+
+.tab_content_item .item-info {
+  color: #808080;
+  font-size: 24rpx;
+  flex: 1;
+}
+
+.tab_content_item .item-info .title {
+  font-size: 32rpx;
+  color: #000;
+}
+.tab_content_item .item-info .cate-info {
+  margin-top: 10rpx;
+  display: flex;
+}
+
+.tab_content_item .item-info .data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.tab_content_item .item-info .data .data-item {
+  display: flex;
+  align-items: center;
+}
+
+.tab_content_item .item-info .data .data-item-icon {
+  margin-right: 8rpx;
+}

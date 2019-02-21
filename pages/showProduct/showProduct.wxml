@@ -1,0 +1,114 @@
+<wxs src="../../utils/common.wxs" module="tools" />
+<view class="page">
+  <view class="weui-navbar">
+    <block wx:for="{{tabs}}" wx:key="{{index}}">
+      <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick" data-cid='{{item.cid}}'>
+        <view class="weui-navbar__title">{{item.name}}</view>
+      </view>
+    </block>
+    <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+  </view>
+  <block wx:if="{{data.length!=0}}">
+    <view class="list" hidden="{{activeIndex==1}}">
+      <view class='list-half'>
+        <view wx:for="{{data}}" wx:key="id" wx:if="{{index%2 == 0}}" class='card' bindtap='cardClick' data-id='{{item.id}}'>
+          <image class="poster" src='{{item.cover_path}}' mode='widthFix'></image>
+          <view class='section padd-right20'>
+            <view class='title'>{{item.title}}</view>
+            <view class='cate-info'>
+              <view class='product-cate grade'>{{item.grade_title}}</view>
+              <view class='product-cate type-{{item.type}}'>{{item.type_title}}</view>
+            </view>
+          </view>
+          <view class='section user-info'>
+            <image class='img60' src='{{item.path}}'></image>
+            <view class='user-name'>
+              <view class='.font-size26'>{{item.name}}</view>
+              <view>
+                <view class="data">
+                  <view class='data-item'>
+                    <image class='img30 data-item-icon' src='../../images/list_icon_2-1.png'></image>
+                    <text>{{item.praise_count}}</text>
+                  </view>
+                  <view class='data-item'>
+                    <image class='img30 data-item-icon' src='../../images/list_icon_3.png'></image>
+                    <text>{{item.comment_count}}</text>
+                  </view>
+                  <view class='data-item'>
+                    <image class='img30 data-item-icon' src='../../images/list_icon_4.png'></image>
+                    <text>{{tools.indexFormat(item.create_time)}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='list-half'>
+        <view wx:for="{{data}}" wx:key="id" wx:if="{{index%2 != 0}}" class='card' bindtap='cardClick' data-id='{{item.id}}'>
+          <image class="poster" src='{{item.cover_path}}' mode='widthFix'></image>
+          <view class='section padd-right20'>
+            <view class='title'>{{item.title}}</view>
+            <view class='cate-info'>
+              <view class='product-cate grade'>{{item.grade_title}}</view>
+              <view class='product-cate type-{{item.type}}'>{{item.type_title}}</view>
+            </view>
+          </view>
+          <view class='section user-info'>
+            <image class='img60' src='{{item.path}}'></image>
+            <view class='user-name'>
+              <view class='.font-size28'>{{item.name}}</view>
+              <view>
+                <view class="data">
+                  <view class='data-item'>
+                    <image class='img30 data-item-icon' src='../../images/list_icon_2-1.png'></image>
+                    <text>{{item.praise_count}}</text>
+                  </view>
+                  <view class='data-item'>
+                    <image class='img30 data-item-icon' src='../../images/list_icon_3.png'></image>
+                    <text>{{item.comment_count}}</text>
+                  </view>
+                  <view class='data-item'>
+                    <image class='img30 data-item-icon' src='../../images/list_icon_4.png'></image>
+                    <text>{{tools.indexFormat(item.create_time)}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="type-article" hidden="{{activeIndex!=1}}">
+      <block wx:for="{{data}}" wx:key="id">
+        <view class="ace-item" bindtap='cardClick' data-id='{{item.id}}'>
+          <view class='intro-top'>
+            <image class='img60' src='{{item.path}}'></image>
+            <view style='margin-left:20rpx;'>
+              <view class='stu-name'>{{item.name}}</view>
+              <view class='stu-info'>
+                <text decode="{{true}}">{{item.grade_title}}&nbsp;&nbsp;|&nbsp;&nbsp;{{tools.indexFormat(item.create_time)}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="ace-content">
+            <view class="ace-text">
+              <text>
+                <text class="ace-title">《{{item.title}}》</text>
+                {{item.content}}
+              </text>
+            </view>
+            <view class="ace-img">
+              <scroll-view class="scroll-img" scroll-x>  
+                <image wx:for="{{item.pictures}}" wx:key="*this" wx:for-item="imgItem" class="img-item" src="{{imgItem}}" mode="aspectFill"/>
+              </scroll-view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>
+  <block wx:else>
+    <nodata title="作品" bgColor="#f0f0f0"></nodata>
+  </block>
+</view>

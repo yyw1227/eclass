@@ -1,0 +1,56 @@
+<view class="page">
+  <view class='header'>
+    <image src='/images/profile_img.jpg' class='head-img' mode="widthFix"></image>
+  </view>
+  <view class="weui-navbar">
+    <block wx:for="{{tabs}}" wx:key="*this">
+      <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+        <view class="weui-navbar__title">{{item}}</view>
+      </view>
+    </block>
+    <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+  </view>
+  <view class='body'>
+    <form bindsubmit="formSubmit">
+      <view class='form-box' wx:if="{{activeIndex == 0}}">
+        <view class='section'>
+          <picker name="team_id" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindGradeChange" value="{{multiIndex}}" range="{{multiArray}}" range-key="{{'title'}}">
+            <view class='pick-content'>
+              <text>{{multiArray[0][multiIndex[0]].title}}，{{multiArray[1][multiIndex[1]].title}}</text>
+              <text class='iconfont icon-jiantou1'></text>
+            </view>
+          </picker>
+        </view>
+        <view class='section'>
+          <input name="name" type="text" placeholder="请输入学生姓名" placeholder-style='color:#C2C2C2' />
+        </view>
+        <view class='section'>
+          <input name="password" type="password" placeholder="请输入密码" placeholder-style='color:#C2C2C2' />
+        </view>
+      </view>
+      <view class='form-box' wx:if="{{activeIndex == 1}}">
+        <view class='section'>
+          <input name="name" type="text" placeholder="请输入您的身份证号" placeholder-style='color:#C2C2C2' />
+        </view>
+        <view class='section'>
+          <input name="password" type="password" placeholder="请输入密码" placeholder-style='color:#C2C2C2' />
+        </view>
+      </view>
+      <button formType="submit" class='login-btn'>登录</button>
+    </form>
+    <view class='others'>
+      <text class='link' bindtap='register'>用户注册</text>
+      <navigator url="./teacherLogin/teacherLogin" hover-class="none">
+        <text class='link' bindtap=''>教师登录</text>
+      </navigator>
+    </view>
+    <view class='others wechat'>
+      <image src='/images/wechat.png' class='img50'></image>
+      注册后绑定微信，
+      <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="wechatLogin" class='wechat-btn'>
+          <text class='link'>点击</text>
+        </button>
+       可一键登陆
+    </view>
+  </view>
+</view>

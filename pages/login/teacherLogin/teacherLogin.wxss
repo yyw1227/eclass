@@ -1,0 +1,35 @@
+.head-img{
+    width: 400rpx;
+    display: block;
+    margin: 40rpx auto 0 auto;
+}
+.head-text{
+    text-align: center;
+    font-size: 36rpx;
+    font-weight:bold;
+    margin: 70rpx 0 70rpx 0;
+}
+.body{
+    width: 540rpx;
+    margin: 0 auto;
+    position: relative;
+  }
+form .section{
+    padding: 12rpx 34rpx;
+    border: 2rpx solid #C2C2C2;
+    font-size: 34rpx;
+    border-radius: 6rpx;
+    margin-bottom: 32rpx;
+  }
+  
+.login-btn{
+    border: none;
+    color: #fff;
+    background-color: #0287F2;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 32rpx;
+  }
+  .form-box{
+    height: 334rpx;
+  }

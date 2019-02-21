@@ -1,0 +1,82 @@
+@import '../../utils/weui.wxss';
+@import '/utils/icon.wxss';
+.pick-content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.weui-navbar{
+  width: 50%;
+  margin: 70rpx auto 30rpx auto;
+  border:none;
+}
+.weui-navbar__item.weui-bar__item_on {
+  font-weight: bold;
+  color: #000;
+}
+ 
+.weui-navbar__slider {
+  background-color: #0287F2;
+}
+.weui-navbar__slider {
+  width: 3em;
+}
+.weui-navbar__title{
+  font-size: 36rpx;
+}
+.head-img{
+  width: 400rpx;
+  display: block;
+  margin: 40rpx auto 0 auto;
+}
+.body{
+  width: 540rpx;
+  margin: 0 auto;
+  position: relative;
+}
+form .section{
+  padding: 12rpx 34rpx;
+  border: 2rpx solid #C2C2C2;
+  font-size: 34rpx;
+  border-radius: 6rpx;
+  margin-bottom: 32rpx;
+}
+
+.login-btn{
+  border: none;
+  color: #fff;
+  background-color: #0287F2;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+}
+.others{
+  font-size: 30rpx;
+  color: #808080;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30rpx;
+}
+.link{
+  color: #005D97;
+}
+.wechat{
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40rpx;
+}
+.form-box{
+  height: 334rpx;
+}
+.wechat-btn {
+  background-color: #fff;
+  padding: 0;
+  margin: 0;  
+  font-size: 26rpx;
+}
+
+.wechat-btn:after {
+  border: none;
+}

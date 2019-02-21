@@ -1,0 +1,52 @@
+.head-img {
+  width: 400rpx;
+  display: block;
+  margin: 80rpx auto 0 auto;
+}
+
+
+.body {
+  width: 540rpx;
+  margin: 90rpx auto 0 auto;
+}
+
+form .section {
+  padding: 6rpx 34rpx;
+  border-bottom: 2rpx solid #eee;
+  font-size: 32rpx;
+  margin-bottom: 50rpx;
+}
+
+.login-btn {
+  border: none;
+  color: #fff;
+  background-color: #0287f2;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  margin-top: 120rpx;
+}
+
+.radio-group {
+  display: flex;
+  align-items: center;
+  font-size: 34rpx;
+  justify-content: space-around;
+  margin-bottom: 50rpx;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+}
+
+radio{
+  margin-left: 10rpx;
+  line-height: 32rpx;
+}
+ 
+radio .wx-radio-input{
+    border-radius: 50%; 
+    width: 32rpx;
+    height: 32rpx;
+}

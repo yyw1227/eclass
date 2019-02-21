@@ -1,0 +1,71 @@
+<view class='page'>
+  <form bindsubmit="formSubmit">
+    <view class='section'>
+      <view class='left'>作品标题:</view>
+      <view class='right'>
+        <input class='title-input' name="title" placeholder="必填" value="{{data.title}}" />
+      </view>
+    </view>
+    <view class='section'>
+      <view class='left'>选择分类:</view>
+      <view class='right'>
+        <radio-group name="type" bindchange="typeChange">
+          <view class="radio-group">
+            <label class="radio-label" wx:for="{{cateGroup}}" wx:key="index">
+              <radio value="{{item.value}}" checked="{{data.type==item.value||index==0}}" color="#0287f2" />
+              <text>{{item.name}}</text>
+            </label>
+          </view>
+        </radio-group>
+      </view>
+    </view>
+    <view class='section' hidden="{{type!=0}}">
+      <view class='left'>选择样式:</view>
+      <view class='right'>
+        <radio-group name="template_id" value="{{}}">
+          <view class="radio-group">
+            <label class="radio-label" wx:for="{{templates}}" wx:key="index">
+              <radio value="{{item.id}}" checked="{{data.template_id==item.id||index==0}}" color="#0287f2" />
+              <image class="img60" src="{{item.cover_path}}" mode="aspectFill" />
+            </label>
+          </view>
+        </radio-group>
+      </view>
+    </view>
+    <view class='section' wx:if="{{user=='user'}}">
+      <view class='left'>选择学生:</view>
+      <view class='right'>
+        <picker name="create_id" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindGradeChange" value="{{multiIndex}}" range="{{multiArray}}" range-key="{{'title'}}">
+            <view class='pick-content'>
+              <text>{{multiArray[0][multiIndex[0]].title}}，{{multiArray[1][multiIndex[1]].title}}，{{multiArray[2][multiIndex[2]].title}}</text>
+            </view>
+        </picker>
+      </view>
+    </view>
+    <view class='section'>
+      <view class='left'>添加图片:</view>
+      <view class='img-upload'>
+        <block wx:for="{{imgList}}" wx:key="id">
+          <image src='{{item.path}}' class='img110 iconfont icon-jianqu' mode="aspectFill" bindtap='deleteImg' data-index='{{index}}'></image>
+        </block>
+        <view class='add-img iconfont icon-add' bindtap='addImg'></view>
+      </view>
+    </view>
+    <view class='section'>
+      <view class='left'>添加视频:</view>
+      <view class='img-upload'>
+        <video id="myVideo" class="img110" wx:if="{{videoUpload.path}}" src="{{videoTemp.tempFilePath? videoTemp.tempFilePath:videoUpload.path}}" controls bindplay="bindplay" bindfullscreenchange="bindfullscreenchange">
+          <cover-image class="cover-img" src="/images/videoPlay.png" bindtap='playVideo' bindlongpress="delVideo" hidden="{{fullScreen}}" />
+        </video>
+        <view wx:if="{{!videoUpload.path}}" class='add-img iconfont icon-add' bindtap='uploadVideo'></view>
+      </view>
+    </view>
+    <view class='section noborder'>
+      <view class='left'>添加文字:</view>
+      <view class='text-area'>
+        <textarea name="content" maxlength="-1" cursor-spacing="10" value="{{data.content}}" hidden="{{fullScreen}}" placeholder="输入说明或作文" style="padding:10rpx" />
+      </view>
+    </view>
+    <button formType="submit" class='btn' disabled="{{disabled}}">确定</button>
+  </form>
+</view>

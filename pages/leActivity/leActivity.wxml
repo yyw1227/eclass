@@ -1,0 +1,192 @@
+<wxs src="../../utils/common.wxs" module="tools" />
+<view class='page'>
+  <view class="weui-tab">
+    <view class="weui-navbar weui-navbar1">
+      <block wx:for="{{tabs}}" wx:key="*this">
+        <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+          <view class="weui-navbar__title weui-navbar__title1">
+            <image src="{{index == 0 ? '../../images/other_icon_1.png' : '../../images/other_icon_2.png'}}" class='img50'></image>
+            <text>{{item}}</text>
+          </view>
+        </view>
+      </block>
+      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </view>
+    <view class="weui-tab__panel">
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+        <view class='box' wx:for="{{activity}}" wx:key="id" data-id="{{item.id}}">
+          <view>
+            <image src='{{item.cover_path}}' class="cover-img" mode="aspectFill"></image>
+          </view>
+          <view class='title'>
+            <text class='font-size34'>{{item.title}}</text>
+            <text class='people-num'><text class='font-red'>{{item.enroll_count}}</text>/{{item.amount}}人</text>
+          </view>
+          <view class='info'>
+            <view class='details'>
+              <text>时间：{{tools.dateFormat(item.date)}}</text>
+              <text>地点：{{item.address}}</text>
+            </view>
+            <view style='padding-top:10rpx;'>
+              <button class="sign-btn" bindtap='addEnroll' data-id='{{item.id}}' data-index='{{index}}' disabled="{{item.my_enroll==1}}">
+                点击报名
+              </button>
+            </view>
+          </view>
+        </view>
+        <block wx:if="{{activity.length==0}}">
+          <nodata></nodata>
+        </block>
+      </view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+        <block wx:if="{{data.live}}">
+          <view class='head'>
+            <live-player class="myVideo" src="{{data.live}}" autoplay bindstatechange="statechange" binderror="error"></live-player>
+          </view>
+          <view class="weui-tab">
+            <view class="weui-navbar">
+              <block wx:for="{{tabs2}}" wx:key="*this">
+                <view id="{{index}}" class="weui-navbar__item {{activeIndex2 == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick2">
+                  <view class="weui-navbar__title">{{item}}</view>
+                </view>
+              </block>
+              <view class="weui-navbar__slider" style="left: {{sliderLeft2}}px; transform: translateX({{sliderOffset2}}px); -webkit-transform: translateX({{sliderOffset2}}px);"></view>
+            </view>
+            <view class="weui-tab__panel live-bg">
+              <view class="weui-tab__content" hidden="{{activeIndex2 != 0}}">
+                <block wx:for="{{history}}" wx:key="id">
+                  <view class="tab_content_item" bindtap='otherLiveClick' data-id='{{item.id}}'>
+                    <view class="item-poster">
+                      <image src='{{item.cover_path}}' mode="aspectFill"></image>
+                    </view>
+                    <view class='item-info'>
+                      <view class="title">{{item.title}}</view>
+                      <view>时间：{{tools.liveTimeFormat(item.region)}}</view>
+                      <view>地点：{{item.address}}</view>
+                      <view class="data">
+                        <view class='data-item'>
+                          <image class='img40 data-item-icon' src='../../images/list_icon_1.png'></image>
+                          <text>{{item.view}}</text>
+                        </view>
+                        <view class='data-item'>
+                          <image class='img40 data-item-icon' src='../../images/list_icon_3.png'></image>
+                          <text>{{item.comment_count}}</text>
+                        </view>
+                        <view class='data-item'>
+                          <image class='img40 data-item-icon' src='../../images/list_icon_4.png'></image>
+                          <text>{{tools.dateFormat(item.create_time)}}</text>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </block>
+              </view>
+              <view class="weui-tab__content" hidden="{{activeIndex2 != 1}}">
+                <view class='intro'>
+                  <view class='intro-header'>
+                    <view class='intro-info'>
+                      <view class='title'>{{data.title}}</view>
+                      <view>
+                        <text style='margin-right:40rpx;'>地点：{{data.address}}</text>
+                        <text>时间：{{tools.liveTimeFormat(data.region)}}</text>
+                      </view>
+                      <view class="data">
+                        <view class='data-item'>
+                          <image class='img40 data-item-icon' src='../../images/list_icon_1.png'></image>
+                          <text>{{data.view}}</text>
+                        </view>
+                        <view class='data-item'>
+                          <image class='img40 data-item-icon' src='../../images/list_icon_3.png'></image>
+                          <text>{{data.comment_count}}</text>
+                        </view>
+                        <view class='data-item'>
+                          <image class='img40 data-item-icon' src='../../images/list_icon_4.png'></image>
+                          <text>{{tools.indexFormat(data.create_time)}}</text>
+                        </view>
+                      </view>
+                    </view>
+                    <view class='like'>
+                      <text>{{data.praise_count}}</text>
+                      <view class="like-bg {{data.my_praise!=0? '':'liked'}}" bindtap='praiseDocument'>
+                        <image src="../../images/list_icon_2-2.png" class='img40'></image>
+                        <text>超赞</text>
+                      </view>
+                    </view>
+                  </view>
+                  <view class='text-box'>
+                    <rich-text nodes="{{data.content}}"></rich-text>
+                  </view>
+                </view>
+              </view>
+              <view class="weui-tab__content" hidden="{{activeIndex2 != 2}}">
+                <view class='download-box'>
+                  <block wx:for="{{data.files}}" wx:key="id">
+                    <view class='download-item'>
+                      <text class='download-name'>#{{index}} {{item.name}}</text>
+                      <view class='download-btn' data-path='{{item.path}}' bindtap='dowload'>
+                        下载
+                      </view>
+                    </view>
+                  </block>
+                </view>
+              </view>
+              <view class="weui-tab__content" hidden="{{activeIndex2 != 3}}">
+                <view class='comment-box'>
+                  <scroll-view bindscrolltolower="moreComments" scroll-y style='height:{{scroll_height}}rpx'>
+                    <block wx:if="{{comments.length!=0}}" wx:for="{{comments}}" wx:key="id">
+                      <view class='comment-item'>
+                        <view class="info">
+                          <view class="user-info">
+                            <image src='{{item.path}}' class='img60' style='margin-right:20rpx;'></image>
+                            <view class='student-info'>
+                              <text>{{item.name}}</text>
+                              <text decode="{{true}}">{{item.grade_title}}{{item.team_title}}&nbsp;&nbsp;|&nbsp;&nbsp;{{tools.indexFormat(item.create_time)}}</text>
+                            </view>
+                          </view>
+                          <view wx:if="{{item.status==2}}" class="comment-like {{item.my_praise==1? 'liked':''}}" data-index='{{index}}' data-commentid='{{item.id}}' bindtap='praiseComment'>
+                            <block wx:if="{{item.my_praise==1}}">
+                              <image src='/images/list_icon_2-3.png' class='img40'></image>
+                            </block>
+                            <block wx:else>
+                              <image src='/images/list_icon_2-1.png' class='img40'></image>
+                            </block>
+                            <text>{{item.praise_count}}</text>
+                          </view>
+                          <view wx:else class="check" data-index='{{index}}' data-commentid='{{item.id}}' bindtap='checkComment'>通过</view>
+                        </view>
+                        <view class='comment-content'>{{item.content}}</view>
+                        <scroll-view wx:if="{{item.pictures.length>0}}" class="scroll-img comment-img-list" scroll-x>
+                          <image bindtap="previewImg" data-index="{{index}}" data-list="{{item.pictures}}" wx:for="{{item.pictures}}" wx:for-item="imgItem" class="img110" src="{{imgItem}}" mode="aspectFill" style="margin-right: 14rpx;" />
+                        </scroll-view>
+                      </view>
+                    </block>
+                  </scroll-view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <nodata></nodata>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class='comment-input' hidden="{{activeIndex2 != 3 || activeIndex != 1}}">
+    <view class="comment-img">
+      <scroll-view class="scroll-img" scroll-x>
+        <image wx:for="{{imgList}}" wx:key="id" src='{{item.path}}' class='img110 iconfont icon-jianqu' mode="aspectFill" bindtap='deleteImg' data-index='{{index}}' style="margin-right: 14rpx;"></image>
+      </scroll-view>
+    </view>
+    <form bindsubmit="commentSub">
+      <view class='bottom-sub'>
+        <image class="img60 upload-img" src="/images/upload_img.png" bindtap="commentImg"/>
+        <input name="comment" placeholder="说说你的看法..." cursor-spacing="10" value="{{commentVal}}"/>
+        <view class='sub-btn'>
+          <image src='../../images/list_icon_2-4.png' class='img30'></image>
+          <button id="submit" size="mini" plain="{{true}}" form-type="submit">提交</button>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>

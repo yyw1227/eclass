@@ -1,0 +1,29 @@
+<view class="page">
+  <view class='header'>
+    <image src='/images/profile_img.jpg' class='head-img' mode="widthFix"></image>
+  </view>
+  <view class='body'>
+    <form bindsubmit="formSubmit">
+      <radio-group class="radio-group" name="type">
+        <label class="radio-label">
+          <radio value="0" checked="{{true}}" color="#0287f2" />
+          <text>校内学生</text>
+        </label>
+        <label class="radio-label">
+          <radio value="1" color="#0287f2" />
+          <text>校外人员</text>
+        </label>
+      </radio-group>
+      <view class='section'>
+        <input name="name" type="text" placeholder="请输入学生身份证号" placeholder-style='color:#808080' />
+      </view>
+      <view class='section'>
+        <input name="password" type="password" placeholder="请输入密码" placeholder-style='color:#808080' />
+      </view>
+      <view class='section'>
+        <input name="comfirm" type="password" placeholder="确认密码" placeholder-style='color:#808080' />
+      </view>
+      <button formType="submit" class='login-btn'>下一步</button>
+    </form>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+.section{
+    text-align: center;
+    font-size: 28rpx;
+    color: #808080;
+}
+.nodata{
+    width: 180rpx;
+    height: 180rpx;
+}
+.font{
+    margin-top: 30rpx;
+}

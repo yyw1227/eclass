@@ -1,0 +1,118 @@
+.header{
+  background-color: #005D97;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 10rpx 30rpx;
+}
+.cate-icon{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  margin-right: 20rpx;
+}
+.search-box{
+  background-color: #fff;
+  height: 70rpx;
+  border-radius: 35rpx;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  color: #000;
+  font-size: 30rpx;
+}
+.search-box input{
+  flex: 1;
+}
+.choose-box {
+  padding: 50rpx 30rpx 20rpx 30rpx;
+  border-bottom: 1px solid #eee;
+}
+.choose-item{
+  margin-bottom: 30rpx;
+}
+.choose-item .choose-title{
+  font-size: 32rpx;
+}
+.choose-item .choose-content{
+  display: flex;
+  flex-wrap: wrap;
+}
+.choose-item .choose-content .option{
+  width: 150rpx;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  color: #808080;
+  border: 1px solid #c2c2c2;
+  font-size: 28rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  padding: 10rpx;
+  margin-right: 30rpx;
+  margin-top: 20rpx;
+}
+.choose-item .choose-content .option:nth-of-type(4n){
+  margin-right: 0;
+}
+.choose-item .choose-content .option.active{
+  background-color: #FFEBEB;
+  color: #f00;
+  border-color: #f00;
+}
+.choose .btn-box{
+  padding: 0 30rpx;
+  margin-top: 80rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.choose .btn-box button{
+  width: 300rpx;
+}
+.content {
+  padding: 0 20rpx;
+}
+.tab_content_item{
+  display: flex;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 1px solid #eeeeee;
+  box-sizing: border-box;
+}
+.tab_content_item .item-poster{
+  width: 250rpx;
+  height: 160rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+.tab_content_item .item-poster image{
+  width: 100%;
+  height: 100%;
+}
+.tab_content_item .item-info{
+  color: #808080;
+  font-size: 24rpx;
+  flex: 1;
+}
+.tab_content_item .item-info .title{
+  font-size: 32rpx;
+  color: #000;
+}
+.tab_content_item .item-info .data{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10rpx;
+  padding-right: 30rpx;
+}
+.tab_content_item .item-info .data .data-item{
+  display: flex;
+  align-items: center;
+}
+.tab_content_item .item-info .data .data-item-icon{
+  margin-right: 8rpx;
+}

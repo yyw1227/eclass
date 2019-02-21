@@ -1,0 +1,19 @@
+<view class="page">
+    <view>
+        <image src='/images/profile_img.jpg' class='head-img' mode="widthFix"></image>
+        <view class="head-text">教师登录</view>
+    </view>
+    <view class="body">
+        <form bindsubmit="formSubmit">
+            <view class='form-box'>
+                <view class='section'>
+                    <input name="name" type="text" placeholder="请输入您的手机号码" placeholder-style='color:#C2C2C2' />
+                </view>
+                <view class='section'>
+                    <input name="password" type="password" placeholder="请输入密码" placeholder-style='color:#C2C2C2' />
+                </view>
+            </view>
+            <button formType="submit" class='login-btn'>登录</button>
+        </form>
+    </view>
+</view>

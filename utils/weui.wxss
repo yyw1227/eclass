@@ -1,0 +1,59 @@
+.weui-navbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  position: relative;
+  z-index: 500;
+  top: 0;
+  width: 100%;
+  border-bottom: 1rpx solid #ccc;
+  font-size: 16px;
+  background-color: #fff;
+}
+ 
+.weui-navbar__item {
+  position: relative;
+  display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  padding: 7px 0 11px 0;
+  text-align: center;
+  font-size: 0;
+}
+ 
+.weui-navbar__item.weui-bar__item_on {
+  color: #E60012;
+}
+ 
+.weui-navbar__slider {
+  position: absolute;
+  content: " ";
+  left: 0;
+  bottom: 6px;
+  width: 4em;
+  height: 3px;
+  border-radius: 1px;
+  background-color: #E60012;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+ 
+.weui-navbar__title {
+  display: inline-block;
+  font-size: 15px;
+  max-width: 8em;
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+ 
+.weui-tab__panel {
+  box-sizing: border-box;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}

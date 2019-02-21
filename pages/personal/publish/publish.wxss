@@ -1,0 +1,107 @@
+@import '../../../utils/icon.wxss';
+.page{
+  padding: 60rpx 0 40rpx 0;
+}
+.section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 40rpx;
+  font-size: 32rpx;
+  border-bottom:2rpx solid #f2f2f2;
+  flex-wrap: wrap;
+}
+.section .left{
+  margin-right: 40rpx;
+}
+.section .right{
+  flex: 1;
+}
+.title-input{
+  background-color: #f0f0f0;
+  padding: 10rpx 0 10rpx 20rpx;
+}
+.radio-group{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.radio-label{
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+radio{
+  margin-left: 10rpx;
+  line-height: 32rpx;
+}
+ 
+radio .wx-radio-input{
+    border-radius: 50%; 
+    width: 32rpx;
+    height: 32rpx;
+}
+.img-upload{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.img-upload .add-img{
+  width: 110rpx;
+  height: 110rpx;
+  background-color: #ccc;
+  margin-top: 30rpx;
+}
+.img-upload image{
+  margin-right: 30rpx;
+  margin-top: 30rpx;
+}
+.img-upload image:nth-of-type(5n){
+  margin-right: 0;
+}
+.iconfont{
+  position: relative;
+  font-size: 70rpx;
+  color: #fff;
+}
+.icon-add:before{
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+}
+.icon-jianqu:before{
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+}
+.text-area{
+  background-color: #f0f0f0;
+  width: 100%;
+  margin-top: 30rpx;
+}
+.text-area textarea{
+  width: 100%;
+}
+.btn{
+  background-color: #EA5550;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 320rpx;
+  text-align: center;
+  margin: 40rpx auto 0 auto;
+  color: #fff;
+  border-radius: 10rpx;
+  padding: 0;
+  display: block;
+}
+.noborder{
+  border: none;
+}
+.cover-img{
+  width: 100%;
+  height: 100%;
+}
+#myVideo{
+  margin-top: 30rpx;
+}

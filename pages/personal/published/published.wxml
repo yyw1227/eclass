@@ -1,0 +1,48 @@
+<wxs src="../../../utils/common.wxs" module="tools" />
+<view class='page'>
+  <block wx:if="{{data.length!=0}}">
+    <view class='slide' wx:for="{{data}}" wx:key="id">
+      <slide-view width="750" height="200" slide-width="300">
+        <view slot="left" class="l">
+          <view class="tab_content_item" bindtap='itemClick' data-id="{{item.id}}" data-status="{{item.status}}">
+            <view class="item-poster">
+              <image src='{{item.cover_path}}' mode="aspectFill"></image>
+            </view>
+            <view class='item-info'>
+              <view class="title">{{item.title}}</view>
+              <view class='cate-info'>
+                <view class='product-cate type-{{item.type}}' style='margin-right:10rpx;'>
+                  {{item.type_title}}
+                </view>
+                <view class='product-cate status-{{item.status}}'>{{item.status_title}}</view>
+              </view>
+              <view class="data">
+                <view class='data-item'>
+                  <image class='img40 data-item-icon' src='../../../images/list_icon_2-1.png'></image>
+                  <text>{{item.praise_count}}</text>
+                </view>
+                <view class='data-item'>
+                  <image class='img40 data-item-icon' src='../../../images/list_icon_3.png'></image>
+                  <text>{{item.comment_count}}</text>
+                </view>
+                <view class='data-item'>
+                  <image class='img40 data-item-icon' src='../../../images/list_icon_4.png'></image>
+                  <text>{{tools.indexFormat(item.create_time)}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view slot="right" class="r">
+          <view class='edit' bindtap='editCreation' data-id="{{item.id}}">编辑</view>
+          <view class='delete' bindtap='deleteCreation' data-id="{{item.id}}" data-index='{{index}}'>
+            删除
+          </view>
+        </view>
+      </slide-view>
+    </view>
+  </block>
+  <block wx:else>
+    <nodata bgColor="#f0f0f0"></nodata>
+  </block>
+</view>

@@ -1,0 +1,27 @@
+<wxs src="../../../utils/common.wxs" module="tools" />
+<view class='page'>
+  <view class='box' wx:for="{{data}}" wx:key="id" data-id="{{item.id}}">
+    <view>
+      <image src='{{item.cover_path}}' class="cover-img" mode="aspectFill"></image>
+    </view>
+    <view class='title'>
+      <text class='font-size34'>{{item.title}}</text>
+      <text class='people-num'><text class='font-red'>{{item.enroll_count}}</text>/{{item.amount}}人</text>
+    </view>
+    <view class='info'>
+      <view class='details'>
+        <view class='status-info'>
+          <text>时间：{{tools.dateFormat(item.date)}}</text>
+          <view class='product-cate status-{{item.status}}'>{{item.status_title}}</view>
+        </view>
+        <text>地点：{{item.address}}</text>
+      </view>
+      <view style='padding-top:10rpx;'>
+        <view class="sign-btn" data-id='{{item.value}}' data-type='{{item.type}}' data-index='{{index}}' bindtap='cancelEnroll'>取消报名</view>
+      </view>
+    </view>
+  </view>
+   <block wx:if="{{data.length==0}}">
+    <nodata bgColor="#f0f0f0"></nodata>
+  </block>
+</view>

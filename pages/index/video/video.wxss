@@ -1,0 +1,196 @@
+@import '../../../utils/weui.wxss';
+@import '../../../utils/icon.wxss';
+page{
+  height: 100%;
+
+}
+.page{
+  height: 100%;
+}
+.weui-tab__content {
+  padding: 0 30rpx;
+  position: relative;
+}
+
+.head video {
+  width: 750rpx;
+  height: 410rpx;
+  vertical-align: middle;
+}
+.text-box{
+  padding-top: 20rpx;
+  font-size: 32rpx;
+  color: #4c4c4c;
+}
+.intro-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eeeeee;
+  padding: 20rpx 10rpx;
+}
+
+.intro-header .like {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 42rpx;
+}
+
+.intro-header .like .like-bg {
+  background-color: #f00;
+  color: #fff;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  border-radius: 12rpx;
+  padding: 0 6rpx;
+}
+.intro-header .like .liked {
+  background-color: #ccc;
+}
+
+.intro-header .intro-info {
+  font-size: 24rpx;
+  color: #808080;
+  flex: 1;
+}
+
+.intro-info .title {
+  font-size: 32rpx;
+  color: #000;
+}
+
+.intro-header .data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10rpx;
+  width: 70%;
+}
+
+.intro-header .data .data-item {
+  display: flex;
+  align-items: center;
+}
+
+.intro-header .data .data-item-icon {
+  margin-right: 8rpx;
+}
+.download-box .download-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 10rpx;
+  border-bottom: 1px dashed #eeeeee;
+  font-size: 32rpx;
+}
+.download-box .download-item .download-btn{
+  color: #1AAD19;
+  border: 1px solid #1AAD19;
+  padding: 0 14rpx;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  text-align: center;
+  min-width: 90rpx;
+  box-sizing: border-box;
+  margin-left: 10rpx;
+}
+.download-box .download-item .download-name{
+  flex: 1;
+}
+.comment-item{
+  padding: 20rpx 10rpx;
+  border-bottom: 1px dashed #eeeeee;
+}
+.comment-item .info{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.comment-item .info .comment-like{
+  font-size: 24rpx;
+  color:#808080;
+  display: flex;
+  align-items: center;
+}
+.comment-item .info .comment-like.liked{
+  color: #f00;
+}
+.comment-item .info .user-info{
+  display: flex;
+  align-items: center;
+}
+.comment-item .info .user-info .student-info{
+  display: flex;
+  flex-direction: column;
+}
+.comment-item .info .user-info .student-info text:nth-of-type(1){
+  font-size: 30rpx;
+}
+.comment-item .info .user-info .student-info text:nth-of-type(2){
+  font-size: 24rpx;
+  color: #808080;
+}
+.comment-item .comment-content{
+  padding-left: 80rpx;
+  font-size: 30rpx;
+  margin-top: 10rpx;
+}
+.comment-input{
+  position: fixed;
+  bottom:2rpx;
+  width:100%;
+  background-color:#fff;
+  padding: 10rpx;
+  box-sizing: border-box;
+  border-top: 1px solid #eeeeee;
+}
+.comment-input .bottom-sub{
+  background-color: #e6e6e6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:0 18rpx;
+}
+.comment-input .bottom-sub .sub-btn{
+  display: flex;
+  align-items: center;
+}
+.comment-input .bottom-sub button{
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-size: 32rpx;
+  margin-left: 10rpx;
+}
+.comment-input .bottom-sub input{
+  font-size: 32rpx;
+  flex: 1;
+}
+.upload-img{
+  margin-right: 8rpx;
+  display: block;
+}
+.iconfont{
+  position: relative;
+  font-size: 70rpx;
+  color: #fff;
+}
+.icon-add:before{
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+}
+.icon-jianqu:before{
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+}
+.check{
+  color:#fff;
+  font-size:26rpx;
+  border-radius:10rpx;
+  padding:0 14rpx;
+  background-color: #5FB878;
+}

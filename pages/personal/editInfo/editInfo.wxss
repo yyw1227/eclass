@@ -1,0 +1,41 @@
+@import '/utils/icon.wxss';
+
+.head {
+  background-color: #f0f0f0;
+  padding: 10rpx 60rpx;
+  font-size: 30rpx;
+  color: #808080;
+  border-top: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.section {
+  padding: 20rpx 60rpx;
+  font-size: 34rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.section .right {
+  width: 200rpx;
+}
+
+.section .left {
+  color: #4c4c4c;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.login-btn {
+  border: none;
+  color: #fff;
+  background-color: #0287f2;
+  width: 300rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  margin-top: 120rpx;
+}

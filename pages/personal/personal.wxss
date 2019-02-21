@@ -1,0 +1,82 @@
+page{
+  height: 100%;
+}
+.page{
+  background-color: #F0F0F0;
+  height: 100%;
+}
+.head{
+  background-color: #EA5550;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.head .userinfo{
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+.head .userinfo .avater{
+  margin: 20rpx;
+  border: 4rpx solid #fff;
+  border-radius: 20rpx;
+}
+.head .userinfo .nameinfo{
+  display: flex;
+  flex-direction: column;
+}
+.head .userinfo .nameinfo .name{
+  font-size: 36rpx;
+}
+.head .userinfo .nameinfo .classes{
+  font-size: 28rpx;
+}
+.head .editinfo{
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+}
+.head .editinfo .arrow{
+  width: 30rpx;
+  height: 30rpx;
+}
+.info-list .info-item.margin10{
+  margin-top: 10rpx;
+}
+.info-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 32rpx;
+  border-bottom: 2rpx solid #f2f2f2;
+  background-color: #fff;
+  padding: 20rpx 30rpx;
+}
+.info-item .item-left{
+  display: flex;
+  align-items: center;
+}
+.info-item .item-right{
+  color: #808080;
+}
+.profile-icon{
+  margin-right: 20rpx;
+}
+.click-login{
+  font-size: 36rpx;
+}
+.head .userinfo .no-border{
+  border: none;
+}
+.wechat-btn {
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+  font-size: 32rpx;
+  line-height: 32rpx;
+}
+
+.wechat-btn:after {
+  border: none;
+}

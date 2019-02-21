@@ -1,0 +1,95 @@
+<view class='page'>
+  <view class='head'>
+    <view class='userinfo' wx:if="{{token}}">
+      <image src='{{userInfo.portrait_path}}' class='img160 avater'></image>
+      <view class='nameinfo'>
+        <text class='name'>{{userInfo.name}}</text>
+        <text class='classes' wx:if="{{userInfo.type}}">{{userInfo.grade_title}}{{userInfo.team_title}} / {{userInfo.type==1? '校外':'校内'}}学生</text>
+        <text class="classes" wx:else>教师管理员</text>
+      </view>
+    </view>
+    <navigator url="/pages/login/login" hover-class="none">
+      <view class='userinfo' wx:if="{{!token}}">
+        <image src='../../images/default.png' class='img140 avater no-border'></image>
+        <view class='click-login'>点击登陆</view>
+      </view>
+    </navigator>
+    <view class='editinfo' wx:if="{{token}}" bindtap='editUserinfo'>
+      <text>修改信息</text>
+      <image src='../../images/arrow.png' class='arrow'></image>
+    </view>
+  </view>
+  <view class='info-list'>
+    <view wx:if="{{userInfo.type!=1}}" class='info-item margin10' bindtap='jumpto' data-url='./publish/publish?id=0'>
+      <view class='item-left'>
+        <image src='../../images/profile_icon_1.png' class='img50 profile-icon'></image>
+        <text style='color:#EA5550'>发布作品</text>
+      </view>
+      <view class='item-right'>点击发布</view>
+    </view>
+    <view wx:if="{{userInfo.type!=1}}" class='info-item' bindtap='jumpto' data-url='./published/published'>
+      <view class='item-left'>
+        <image src='../../images/profile_icon_2.png' class='img50 profile-icon'></image>
+        <text>已发布作品</text>
+      </view>
+      <view class='item-right'>{{userInfo.creation_count}}</view>
+    </view>
+    <view class='info-item' bindtap='jumpto' data-url='./liked/liked'>
+      <view class='item-left'>
+        <image src='../../images/profile_icon_3.png' class='img50 profile-icon'></image>
+        <text>点赞过的作品</text>
+      </view>
+      <view class='item-right'>{{userInfo.praise_count}}</view>
+    </view>
+    <block wx:if="{{userInfo.type||!token}}">
+      <view class='info-item margin10' bindtap='jumpto' data-url='./joined/joined'>
+        <view class='item-left'>
+          <image src='../../images/profile_icon_4.png' class='img50 profile-icon'></image>
+          <text>我报名的活动</text>
+        </view>
+        <view class='item-right'>{{userInfo.enroll_count}}</view>
+      </view>
+      <view class='info-item' bindtap='jumpto' data-url='./myCourse/myCourse'>
+        <view class='item-left'>
+          <image src='../../images/profile_icon_5.png' class='img50 profile-icon'></image>
+          <text>我学过的课程</text>
+        </view>
+        <view class='item-right'>{{userInfo.history_count}}</view>
+      </view>
+    </block>
+    <block wx:else>
+        <view class='info-item' bindtap='jumpto' data-url='./checkCenter/checkCenter'>
+        <view class='item-left'>
+          <image src='../../images/profile_icon_9.png' class='img50 profile-icon'></image>
+          <text>审核中心</text>
+        </view>
+        <view class='item-right'>{{userInfo.permit_count}}</view>
+      </view>
+    </block>
+    <view class='info-item margin10' wx:if="{{token}}">
+      <view class='item-left'>
+        <image src='../../images/profile_icon_6.png' class='img50 profile-icon'></image>
+        <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUser" class='wechat-btn'>
+          <text>绑定微信</text>
+        </button>
+      </view>
+      <view class='item-right'></view>
+    </view>
+    <navigator url="./aboutUs/aboutUs" hover-class="none">
+      <view class='info-item margin10'>
+        <view class='item-left'>
+          <image src='../../images/profile_icon_7.png' class='img50 profile-icon'></image>
+          <text>关于卓越小学堂</text>
+        </view>
+        <view class='item-right'></view>
+      </view>
+    </navigator>
+    <view class='info-item' bindtap='logout'>
+      <view class='item-left'>
+        <image src='../../images/profile_icon_8.png' class='img50 profile-icon'></image>
+        <text>退出登陆</text>
+      </view>
+      <view class='item-right'></view>
+    </view>
+  </view>
+</view>

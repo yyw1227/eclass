@@ -1,0 +1,123 @@
+<wxs src="../../../utils/common.wxs" module="tools" />
+<view class='page'>
+  <view class='intro-header'>
+    <view class='intro-info'>
+      <view class='intro-top'>
+        <image class='img60' src='{{data.path}}'></image>
+        <view style='margin-left:20rpx;'>
+          <view class='title'>{{data.title}}</view>
+          <view class='cate-info'>
+            <view class='product-cate grade'>{{data.grade_title}}</view>
+            <view class='product-cate type-{{data.type}}'>{{data.type_title}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="data">
+        <view class='data-item'>
+          <image class='img40 data-item-icon' src='../../../images/list_icon_1.png'></image>
+          <text>{{data.view}}</text>
+        </view>
+        <view class='data-item'>
+          <image class='img40 data-item-icon' src='../../../images/list_icon_3.png'></image>
+          <text>{{data.comment_count}}</text>
+        </view>
+        <view class='data-item'>
+          <image class='img40 data-item-icon' src='../../../images/list_icon_4.png'></image>
+          <text>{{tools.indexFormat(data.create_time)}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='like'>
+      <text>{{data.praise_count}}</text>
+      <view class="like-bg">
+        <image src="../../../images/list_icon_2-2.png" class='img40'></image>
+        <text>超赞</text>
+      </view>
+    </view>
+  </view>
+  <view class='content'>
+    <block wx:if="{{data.type_title=='作文'}}">
+      <view class='content-text' style="{{data.template_content}}">
+        <text space="nbsp">{{data.content}}</text>
+      </view>
+      <view class="meida-box">
+        <block wx:for="{{data.pictures}}" wx:key="{{index}}">
+          <image class='content-img' src='{{item.path}}' mode='widthFix'></image>
+        </block>
+        <video src="{{data.video_path}}" wx:if="{{data.video_path}}" id="myVideo"></video>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="meida-box">
+        <block wx:for="{{data.pictures}}" wx:key="{{index}}">
+          <image class='content-img' src='{{item.path}}' mode='widthFix'></image>
+        </block>
+        <video src="{{data.video_path}}" wx:if="{{data.video_path}}" id="myVideo"></video>
+      </view>
+      <view class='content-text' style="{{data.template_content}}">
+        <text space="nbsp">{{data.content}}</text>
+      </view>
+    </block>
+    <view class='btn-box' wx:if="{{check==0}}">
+      <view style='background-color:#f00;margin-right:40rpx;' bindtap='praiseCreation'>
+        <image src='../../../images/list_icon_2-2.png' class='img40'></image>
+        <text>点赞</text>
+      </view>
+      <view style='background-color:#1AAD19;' bindtap='commentFocus'>
+        <image src='../../../images/list_icon_2-5.png' class='img40'></image>
+        <text>评论</text>
+      </view>
+    </view>
+    <view class="check-box" wx:if="{{check==1}}">
+        <button type="primary" bindtap="checkCreation" >通过</button>
+    </view>
+  </view>
+  <view class='comment-box'>
+    <block wx:for="{{comments}}" wx:key="index">
+      <view class='comment-item'>
+        <view class="info">
+          <view class="user-info">
+            <image src='{{item.path}}' class='img60' style='margin-right:20rpx;'></image>
+            <view class='student-info'>
+              <text>{{tools.nameFormat(item.name)}}</text>
+              <text decode="{{true}}">{{item.grade_title}}{{item.team_title}}&nbsp;&nbsp;|&nbsp;&nbsp;{{tools.indexFormat(item.create_time)}}</text>
+            </view>
+          </view>
+          <view wx:if="{{item.status==2}}" class="comment-like {{item.my_praise==1? 'liked':''}}" data-index='{{index}}' data-commentid='{{item.id}}' bindtap='praiseComment'>
+            <block wx:if="{{item.my_praise==1}}">
+              <image src='../../../images/list_icon_2-3.png' class='img40'></image>
+            </block>
+            <block wx:else>
+              <image src='../../../images/list_icon_2-1.png' class='img40'></image>
+            </block>
+            <text>{{item.praise_count}}</text>
+          </view>
+          <view wx:else class="check" data-index='{{index}}' data-commentid='{{item.id}}' bindtap='checkComment'>通过</view>
+        </view>
+        <view class='comment-content'>
+          <text space="nbsp">{{item.content}}</text>
+        </view>
+        <scroll-view wx:if="{{item.pictures.length>0}}" class="scroll-img comment-img-list" scroll-x>
+          <image bindtap="previewImg" data-index="{{index}}" data-list="{{item.pictures}}" wx:for="{{item.pictures}}" wx:for-item="imgItem" class="img110" src="{{imgItem}}" mode="aspectFill" style="margin-right: 14rpx;" />
+        </scroll-view>
+      </view>
+    </block>
+  </view>
+  <view class='comment-input'>
+    <view class="comment-img">
+      <scroll-view class="scroll-img" scroll-x>
+        <image wx:for="{{imgList}}" wx:key="id" src='{{item.path}}' class='img110 iconfont icon-jianqu' mode="aspectFill" bindtap='deleteImg' data-index='{{index}}' style="margin-right: 14rpx;"></image>
+      </scroll-view>
+    </view>
+    <form bindsubmit="commentSub">
+      <view class='bottom-sub'>
+        <image class="img60 upload-img" src="/images/upload_img.png" bindtap="commentImg" />
+        <input name="comment" placeholder="说说你的看法..." cursor-spacing="10" focus="{{focus}}" value="{{commentVal}}" />
+        <view class='sub-btn'>
+          <image src='../../../images/list_icon_2-4.png' class='img30'></image>
+          <button id="submit" size="mini" plain="{{true}}" form-type="submit">提交</button>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>

@@ -1,0 +1,89 @@
+@import '../../utils/weui.wxss';
+.header{
+  background-color: #005D97;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 10rpx 30rpx;
+}
+.cate-icon{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  margin-right: 20rpx;
+}
+.search-box{
+  background-color: #fff;
+  height: 70rpx;
+  border-radius: 35rpx;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  color: #000;
+  font-size: 30rpx;
+}
+.search-box input{
+  flex: 1;
+}
+.swiper{
+  padding: 16rpx;
+  background-color: #F0F0F0;
+}
+.swiper swiper{
+  height:300rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+.swiper .slide-image{
+  width: 100%;
+  height: 100%;
+}
+.swiper swiper swiper-item{
+   border-radius: 16rpx;
+}
+.weui-tab__panel {
+  padding: 0 20rpx;
+}
+.tab_content_item{
+  display: flex;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 1px solid #eeeeee;
+  box-sizing: border-box;
+}
+.tab_content_item .item-poster{
+  width: 250rpx;
+  height: 160rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+.tab_content_item .item-poster image{
+  width: 100%;
+  height: 100%;
+}
+.tab_content_item .item-info{
+  color: #808080;
+  font-size: 24rpx;
+  flex: 1;
+}
+.tab_content_item .item-info .title{
+  font-size: 32rpx;
+  color: #000;
+}
+.tab_content_item .item-info .data{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tab_content_item .item-info .data .data-item{
+  display: flex;
+  align-items: center;
+}
+.tab_content_item .item-info .data .data-item-icon{
+  margin-right: 8rpx;
+}

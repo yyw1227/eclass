@@ -1,0 +1,47 @@
+/**
+ * 人性化时间处理 传入时间戳
+ */
+function indexFormat(timestamp) {
+  var mistiming = Math.round(getDate() / 1000) - timestamp;
+  var arrr = ['年', '个月', '星期', '天', '小时', '分钟', '秒'];
+  var arrn = [31536000, 2592000, 604800, 86400, 3600, 60, 1];
+  for (var i = 0; i <= 6; i++) {
+    var inm = Math.floor(mistiming / arrn[i]);
+    if (inm != 0) {
+      return inm + arrr[i] + '前';
+    }
+  }
+}
+/**
+ * 格式化日期
+ */
+
+var dateFormat = function(date) {
+  var date = getDate(date * 1000); //返回当前时间对象
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  return [year, month, day].join('.')
+}
+/**
+ * 学生名格式化：某同学
+ */
+function nameFormat(name) {
+  var s = name.substring(0, 1);
+  return s + '同学';
+}
+/**
+ * 直播日期格式化
+ */
+function liveTimeFormat(time) {
+  var timeArr = time.split(',');
+  var str = dateFormat(timeArr[0]) + '-' + dateFormat(timeArr[1]);
+  return str;
+}
+
+module.exports = {
+  indexFormat: indexFormat,
+  dateFormat: dateFormat,
+  nameFormat: nameFormat,
+  liveTimeFormat: liveTimeFormat
+};

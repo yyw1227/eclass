@@ -1,0 +1,32 @@
+<wxs src="../../../utils/common.wxs" module="tools" />
+<view class="page">
+  <block wx:for="{{data}}" wx:key="id">
+    <view class="tab_content_item" bindtap='itemClick' data-id='{{item.id}}'>
+      <view class="item-poster">
+        <image src='{{item.cover_path}}' mode="aspectFill"></image>
+      </view>
+      <view class='item-info'>
+        <view class="title">{{item.title}}</view>
+        <view>学科：{{item.subject_title}}/{{item.grade_title}}/{{item.term_title}}</view>
+        <view>讲师：{{item.teacher}}</view>
+        <view class="data">
+          <view class='data-item'>
+            <image class='img40 data-item-icon' src='../../../images/list_icon_2-1.png'></image>
+            <text>{{item.praise_count}}</text>
+          </view>
+          <view class='data-item'>
+            <image class='img40 data-item-icon' src='../../../images/list_icon_3.png'></image>
+            <text>{{item.comment_count}}</text>
+          </view>
+          <view class='data-item'>
+            <image class='img40 data-item-icon' src='../../../images/list_icon_4.png'></image>
+            <text>{{tools.indexFormat(item.create_time)}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{data.length==0}}">
+    <nodata bgColor="#f0f0f0"></nodata>
+  </block>
+</view>

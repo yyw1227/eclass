@@ -1,0 +1,62 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/index/video/video",
+    "pages/index/search/search",
+    "pages/leActivity/leActivity",
+    "pages/showProduct/showProduct",
+    "pages/showProduct/productDetail/productDetail",
+    "pages/personal/personal",
+    "pages/personal/publish/publish",
+    "pages/personal/myCourse/myCourse",
+    "pages/personal/published/published",
+    "pages/personal/liked/liked",
+    "pages/personal/joined/joined",
+    "pages/personal/editInfo/editInfo",
+    "pages/personal/aboutUs/aboutUs",
+    "pages/personal/checkCenter/checkCenter",
+    "pages/login/login",
+    "pages/login/teacherLogin/teacherLogin",
+    "pages/register/register",
+    "pages/register/personalInfo/personalInfo"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#005D97",
+    "navigationBarTitleText": "卓越小学堂",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#005D97",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "E学堂",
+        "selectedIconPath": "images/nav_icon_1_selected.png",
+        "iconPath": "images/nav_icon_1_default.png"
+      },
+      {
+        "pagePath": "pages/leActivity/leActivity",
+        "text": "乐活动",
+        "selectedIconPath": "images/nav_icon_2_selected.png",
+        "iconPath": "images/nav_icon_2_default.png"
+      },
+      {
+        "pagePath": "pages/showProduct/showProduct",
+        "text": "秀作品",
+        "selectedIconPath": "images/nav_icon_3_selected.png",
+        "iconPath": "images/nav_icon_3_default.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "个人中心",
+        "selectedIconPath": "images/nav_icon_4_selected.png",
+        "iconPath": "images/nav_icon_4_default.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "nodata": "/components/nodata/nodata"
+}
+}

@@ -1,0 +1,37 @@
+<wxs src="../../../utils/common.wxs" module="tools" />
+<view class="page">
+  <block wx:for="{{data}}" wx:key="id">
+    <view class="tab_content_item" bindtap='itemClick' data-type='{{item.type}}' data-id='{{item.value}}'>
+      <view class="item-poster">
+        <image src='{{item.cover_path}}' mode="aspectFill"></image>
+      </view>
+      <view class='item-info'>
+        <view class="title">{{item.title}}</view>
+        <view class='cate-info'>
+          <view class='product-cate type-{{item.type}}'>
+            <bolck wx:if="{{item.type == 'media'}}">E学堂</bolck>
+            <bolck wx:elif="{{item.type == 'creation'}}">秀作品</bolck>
+            <bolck wx:else>直播</bolck>
+          </view>
+        </view>
+        <view class="data">
+          <view class='data-item'>
+            <image class='img40 data-item-icon' src='../../../images/list_icon_2-1.png'></image>
+            <text>{{item.praise_count}}</text>
+          </view>
+          <view class='data-item'>
+            <image class='img40 data-item-icon' src='../../../images/list_icon_3.png'></image>
+            <text>{{item.comment_count}}</text>
+          </view>
+          <view class='data-item'>
+            <image class='img40 data-item-icon' src='../../../images/list_icon_4.png'></image>
+            <text>{{tools.indexFormat(item.time)}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{data.length==0}}">
+    <nodata bgColor="#f0f0f0"></nodata>
+  </block>
+</view>

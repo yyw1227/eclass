@@ -1,0 +1,23 @@
+<view class="page">
+  <view class='head'>基本信息</view>
+  <view class='section'>
+    <view class='right'>
+      <text>头像</text>
+    </view>
+    <view class='left' bindtap='uploadImg'>
+      <image src="{{user.img? user.img:'/images/default.png'}}" class='img140 border'></image>
+      <text class='iconfont icon-jiantou1'></text>
+    </view>
+  </view>
+  <form bindsubmit="formSubmit">
+    <view class='section'>
+      <view class='right'>
+        <text>姓名</text>
+      </view>
+      <view class='left'>
+        <input name="name" type="text" placeholder="输入姓名" class='input-item' value='{{user.name}}' />
+      </view>
+    </view>
+    <button class='login-btn' formType="submit">确认修改</button>
+  </form>
+</view>
